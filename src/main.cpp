@@ -1,4 +1,5 @@
 #include "QRReader.h"
+#include "QRReportGenerator.h"
 
 int main(int argc, char* argv[]) {
     if (argc < 2) {
@@ -7,6 +8,7 @@ int main(int argc, char* argv[]) {
     }
 
     QRReader reader = QRReader();
+    QRReportGenerator generator = QRReportGenerator();
 
     QRDataList list = reader.decodeQRFromDir(std::string(argv[1]));
 
@@ -15,6 +17,8 @@ int main(int argc, char* argv[]) {
         std::string data = qrData.second.empty() ? "not found" : qrData.second;
         std::cout << qrData.first << ":" << data << std::endl;
     }
+
+    generator.generate(list);
 
     return 0;
 }

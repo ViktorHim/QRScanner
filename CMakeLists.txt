@@ -6,7 +6,7 @@ project(QRScanner)
 set(CMAKE_CXX_STANDARD 17)
 find_package(ZXing CONFIG REQUIRED)
 
-add_executable(${PROJECT_NAME} src/main.cpp src/QRReader.cpp)
+add_executable(${PROJECT_NAME} src/main.cpp src/QRReader.cpp src/QRReportGenerator.cpp)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE ZXing::Core ZXing::ZXing)
 
