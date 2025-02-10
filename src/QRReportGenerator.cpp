@@ -81,6 +81,7 @@ void QRReportGenerator::generate(QRDataList list)
         bool isEmpty = qrData.second.empty();
         std::string data =isEmpty  ? "not found" : qrData.second;
         std::string path = qrData.first;
+        std::string filename = fs::path(path).filename().string();
 
         if(isEmpty)
         {
@@ -92,8 +93,8 @@ void QRReportGenerator::generate(QRDataList list)
         {
             file << "<div class=\"card\">";
             file << "<img class=\"image\" src=\"" << path << "\">";
-            file << "<p data-text=\"" << path <<"\" data-value=\"" << data <<"\">QRcode in " << path <<" : " << data << "</p>";
-            file << "<button data-btn=\"" << path <<"\">Copy</button>";
+            file << "<p data-text=\"" << filename <<"\" data-value=\"" << data <<"\">QRcode in " << filename <<" : " << data << "</p>";
+            file << "<button data-btn=\"" << filename <<"\">Copy</button>";
         }
 
         file << "</div>";

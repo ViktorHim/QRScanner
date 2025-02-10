@@ -1,5 +1,6 @@
 /bin
 /build
 /res
+report.html
 .vscode
 thresholds_new.pnm

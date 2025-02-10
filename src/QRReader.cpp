@@ -14,7 +14,6 @@ QRDataList QRReader::decodeQRFromDir(std::string path)
 {
     std::vector<std::string> imagePaths;
     QRDataList list;
-
     if(fs::is_regular_file(path))
     {
         imagePaths.push_back(path);
@@ -44,7 +43,8 @@ QRDataList QRReader::decodeQRFromDir(std::string path)
 
     for(auto& imagePath: imagePaths)
     {
-        std::cout << "Processing " << imagePath << std::endl;
+        std::string filename = fs::path(imagePath).filename().string();
+        std::cout << "Processing " << filename << std::endl;
         int width, height, channels;
 
         Pixel * img_data = stbi_load(imagePath.c_str(), &width, &height, &channels, 1);

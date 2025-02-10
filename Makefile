@@ -15,3 +15,4 @@ clean:
 	@if exist build (rmdir /s /q build)
 	@if exist bin (rmdir /s /q bin)
 	@if exist thresholds_new.pnm (del /f /q thresholds_new.pnm)
+	@if exist report.html (del /f /q report.html)
